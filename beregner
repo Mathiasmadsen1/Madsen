@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorberegner</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input { margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Motorberegner</h1>
+    <label for="moment">Moment (Nm):</label>
+    <input type="number" id="moment" placeholder="Indtast moment"><br>
+    
+    <label for="rpm">Omdrejninger pr. minut:</label>
+    <input type="number" id="rpm" placeholder="Indtast RPM"><br>
+    
+    <button onclick="calculatePower()">Beregn Effekt</button>
+    
+    <h2 id="result"></h2>
+
+    <script>
+        function calculatePower() {
+            const moment = document.getElementById('moment').value;
+            const rpm = document.getElementById('rpm').value;
+            const power = (moment * rpm) / 9549; // Effekt i hk
+            document.getElementById('result').innerText = `Effekten er ${power.toFixed(2)} hk.`;
+        }
+    </script>
+</body>
+</html>
